@@ -24,6 +24,7 @@
         android:background="@color/colorPrimary"
         tools:context=".activities.CheckinActivity">
 
+<<<<<<< HEAD
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/sliderViewPager"
             android:layout_width="match_parent"
@@ -75,6 +76,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+=======
+>>>>>>> origin/main
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
