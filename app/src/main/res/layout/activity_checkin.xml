@@ -24,8 +24,8 @@
         android:background="@color/colorPrimary"
         tools:context=".activities.CheckinActivity">
 
-<<<<<<< HEAD
-        <androidx.viewpager2.widget.ViewPager2
+
+    <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/sliderViewPager"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_160sdp"
