@@ -13,6 +13,7 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -45,6 +46,7 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation 'com.android.support:multidex:1.0.3'
     
     // Material Desing
     implementation 'com.google.android.material:material:1.2.1'
@@ -75,4 +77,7 @@ dependencies {
 
     //Glide
     implementation 'com.github.bumptech.glide:glide:4.4.0'
+
+    //Maps
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
 }

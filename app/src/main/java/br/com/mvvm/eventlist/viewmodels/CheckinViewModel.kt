@@ -7,16 +7,21 @@ import br.com.mvvm.eventlist.models.EventPeople
 import br.com.mvvm.eventlist.repositories.CheckinRepository
 import br.com.mvvm.eventlist.utilities.Utility.isInternetAvailable
 
-class CheckinViewModel (private val context: Context, private val idEvent:Int) : ViewModel() {
+class CheckinViewModel(
+    private val context: Context,
+    private val idEvent: String,
+    private val name: String,
+    private val email: String
+) : ViewModel() {
 
     private var listData = MutableLiveData<ArrayList<EventPeople>>()
 
-    init{
-        val checkinRepository : CheckinRepository by lazy {
+    init {
+        val checkinRepository: CheckinRepository by lazy {
             CheckinRepository
         }
-        if(context.isInternetAvailable()) {
-            listData = checkinRepository.getMutableLiveData(context, idEvent)
+        if (context.isInternetAvailable()) {
+            listData = checkinRepository.getMutableLiveData(context, idEvent, name, email)
         }
     }
 

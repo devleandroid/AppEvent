@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="isLoading"
+            type="Boolean" />
+
+        <variable
+            name="requestResponse"
+            type="Boolean" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutConstraint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/layoutConstraint">
+
+            <LinearLayout
+                android:id="@+id/llFieldsCheckIn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="@{isLoading ? View.GONE : View.VISIBLE }">
+
+                <TextView
+                    android:id="@+id/tvCheckInTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/checkin"
+                    android:textColor="@color/black"
+                    android:textSize="24sp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilName"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:textColorHint="@color/colorAccent"
+                    app:boxStrokeColor="@color/colorPrimaryLight"
+                    app:boxStrokeWidthFocused="1dp"
+                    app:hintTextColor="@color/colorPrimary">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tiName"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="@string/dialogNome"
+                        android:imeOptions="actionNext"
+                        android:importantForAutofill="no"
+                        android:maxLines="1"
+                        android:nextFocusDown="@+id/tieEmail"
+                        android:padding="12dp"
+                        android:textColor="@color/colorAccent"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilEmail"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:textColorHint="@color/colorAccent"
+                    app:boxStrokeColor="@color/colorPrimaryLight"
+                    app:boxStrokeWidthFocused="1dp"
+                    app:hintTextColor="@color/colorPrimary">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tiEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="@string/dialogEmail"
+                        android:importantForAutofill="no"
+                        android:maxLines="1"
+                        android:padding="12dp"
+                        android:textColor="@color/colorAccent"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnEnviar"
+                style="@style/CardView.Light"
+                android:layout_width="wrap_content"
+                android:layout_height="56dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="@string/btnEnviar"
+                android:textColor="@color/white"
+                android:visibility="@{isLoading ? View.GONE : View.VISIBLE }"
+                app:cornerRadius="24dp" />
+
+            <ProgressBar
+                android:id="@+id/progressLoaderCheckIn"
+                style="@style/CardView.Light"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="36dp"
+                android:indeterminate="true"
+                android:indeterminateTint="@color/colorAccent"
+                android:visibility="@{isLoading ? View.VISIBLE : View.GONE, default = gone}"
+                tools:visibility="gone" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

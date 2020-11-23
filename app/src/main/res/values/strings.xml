@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Event List</string>
+    <!--google maps api key-->
+    <string name="google_maps_key">6f4f3583f72ae79b</string>
+    <string name="checkin">Checkin</string>
+    <string name="dialogNome">Nome</string>
+    <string name="dialogEmail">Email</string>
+    <string name="btnEnviar">Enviar</string>
+
 </resources>

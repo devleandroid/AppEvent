@@ -10,8 +10,8 @@
             type="Boolean" />
 
         <variable
-            name="eventTitle"
-            type="String" />
+            name="event"
+            type="br.com.mvvm.eventlist.models.EventPeople" />
 
         <import type="android.view.View" />
 
@@ -22,13 +22,13 @@
         android:layout_height="match_parent"
         android:animateLayoutChanges="true"
         android:background="@color/colorPrimary"
-        tools:context=".activities.CheckinActivity">
+        tools:context=".activities.DetailCheckinActivity">
 
 
-    <androidx.viewpager2.widget.ViewPager2
+        <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/sliderViewPager"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_160sdp"
+            android:layout_height="@dimen/_100sdp"
             android:orientation="horizontal"
             android:visibility="gone"
             app:layout_constraintTop_toTopOf="parent" />
@@ -61,9 +61,89 @@
                 android:ellipsize="end"
                 android:includeFontPadding="false"
                 android:maxLines="1"
-                android:text="@{eventTitle}"
+                android:text="@{event.title}"
                 android:textColor="@color/colorTextOther"
                 android:textSize="@dimen/_14ssp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutDesciption"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_300sdp"
+            android:layout_above="@+id/layoutHeader"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/_8sdp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/layoutSliderIndicators"
+            tools:ignore="UnknownIdInLayout">
+
+            <ScrollView
+                android:id="@+id/scroller"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true"
+                android:scrollbars="vertical">
+
+                <TextView
+                    android:id="@+id/txtDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_290sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:includeFontPadding="false"
+                    android:scrollbars="vertical"
+                    android:text="@{event.description}"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textSize="@dimen/_14ssp" />
+
+            </ScrollView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutLocalization"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_150sdp"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/layoutDesciption">
+
+            <fragment
+                android:id="@+id/map"
+                class="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_200sdp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutCheckin"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:background="@color/colorPrimaryLight"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/_8sdp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/layoutLocalization">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCheckIn"
+                style="@style/CardView.Light"
+                android:layout_width="wrap_content"
+                android:layout_height="56dp"
+                android:layout_gravity="center"
+                android:layout_marginEnd="8dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="@string/checkin"
+                android:textColor="@color/white"
+                app:cornerRadius="24dp" />
 
         </LinearLayout>
 

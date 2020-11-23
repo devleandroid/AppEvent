@@ -3,7 +3,6 @@ package br.com.mvvm.eventlist.activities
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,7 +13,6 @@ import br.com.mvvm.eventlist.databinding.ActivityMainBinding
 import br.com.mvvm.eventlist.listeners.PeopleListener
 
 import br.com.mvvm.eventlist.models.EventPeople
-import br.com.mvvm.eventlist.utilities.ParcelObjectName
 import br.com.mvvm.eventlist.viewmodels.EventPeopleViewModel
 import br.com.mvvm.eventlist.viewmodels.EventPeopleViewModelFactory
 
@@ -59,12 +57,12 @@ class MainActivity : AppCompatActivity(), PeopleListener {
     }
 
     override fun onPeopleClicked(eventPeople: EventPeople?) {
-        val intent = Intent(applicationContext, CheckinActivity::class.java)
-        intent.putExtra("id", eventPeople!!.id)
-        intent.putExtra("title",eventPeople!!.title)
-        intent.putExtra("description",eventPeople.description)
-        intent.putExtra("latitude",eventPeople.latitude)
-        intent.putExtra("longitude",eventPeople.longitude)
+        val intent = Intent(applicationContext, DetailCheckinActivity::class.java)
+        intent.putExtra("id", eventPeople!!.id.toString())
+        intent.putExtra("title", eventPeople!!.title)
+        intent.putExtra("description", eventPeople.description)
+        intent.putExtra("latitude", eventPeople.latitude)
+        intent.putExtra("longitude", eventPeople.longitude)
         startActivity(intent)
     }
 

@@ -1,20 +1,14 @@
 package br.com.mvvm.eventlist.adapters
 
 import android.content.Context
-import android.content.Intent
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import br.com.mvvm.eventlist.R
-import br.com.mvvm.eventlist.activities.CheckinActivity
 import br.com.mvvm.eventlist.listeners.PeopleListener
 import br.com.mvvm.eventlist.models.EventPeople
-import br.com.mvvm.eventlist.utilities.ParcelObjectName
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.makeramen.roundedimageview.RoundedImageView
